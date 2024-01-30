@@ -9,15 +9,15 @@ const GetPokemonData = async (pokemon) => {
     return data;
 }
 
-const GetPokeImg = async (pokemonData) => {
+const GetPokeImg = (pokemonData) => {
     return pokemonData.sprites.other["official-artwork"].front_default;
 }
 
-const GetPokeEvolveImg = async (pokemonData) => {
+const GetPokeEvolveImg = (pokemonData) => {
     return pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_default;;
 }
 
-const GetPokeTypes = async (pokemonData) => {
+const GetPokeTypes = (pokemonData) => {
     pokeTypes = [];
     pokemonData.types.map(t => {
         console.log(t.type.name);
@@ -26,13 +26,25 @@ const GetPokeTypes = async (pokemonData) => {
     console.log(pokeTypes);
 }
 
-const GetPokeName = async (pokemonData) => {
+const GetPokeName = (pokemonData) => {
     return pokemonData.species.name;
 }
 
-const GetPokeNum = async (pokemonData) => {
+
+const GetPokeNum = (pokemonData) => {
     return idFormat(pokemonData.id.toString());
 }
+
+const GetPokeFlavorText = async (pokemonData) => {
+    let id = pokemonData.id;
+    const promise = await fetch('https://pokeapi.co/api/v2/pokemon-species/' + id)
+    const data = await promise.json();
+    let arr = data.flavor_text_entries;
+    let index = arr.findIndex(text => text.language.name === "en");
+    return arr[index].flavor_text;
+}
+
+console.log(await GetPokeFlavorText(await GetPokemonData("tepig")));
 
 
 
