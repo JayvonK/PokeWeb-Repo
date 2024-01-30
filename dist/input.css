@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-pokeBlue {
+    background: rgb(121,140,255);
+    background: linear-gradient(180deg, rgba(121,140,255,1) 0%, rgba(36,52,155,1) 100%);
+}
