@@ -1,3 +1,5 @@
+import { idFormat } from "./idFormat.js";
+
 let pokeImg = document.getElementById("pokeImg");
 let pokeTypes = [];
 
@@ -29,6 +31,8 @@ const GetPokeName = async (pokemonData) => {
 }
 
 const GetPokeNum = async (pokemonData) => {
-    return pokemonData.id;
+    return idFormat(pokemonData.id.toString());
 }
+
+
 
