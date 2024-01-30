@@ -1,7 +1,6 @@
 import { idFormat, nameFormat } from "./dataFormat.js";
 
 let pokeImg = document.getElementById("pokeImg");
-let pokeTypes = [];
 
 const GetPokemonData = async (pokemon) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
@@ -13,17 +12,18 @@ const GetPokeImg = (pokemonData) => {
     return pokemonData.sprites.other["official-artwork"].front_default;
 }
 
+const GetShinyPokeImg = (pokemonData) => {
+    return pokemonData.sprites.other["official-artwork"].front_shiny;
+}
+
 const GetPokeEvolveImg = (pokemonData) => {
     return pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_default;;
 }
 
 const GetPokeTypes = (pokemonData) => {
-    pokeTypes = [];
-    pokemonData.types.map(t => {
-        console.log(t.type.name);
-        pokeTypes.push(t.type.name);
-    })
-    console.log(pokeTypes);
+    let pokeTypes = [];
+    pokemonData.types.map(t => pokeTypes.push(t.type.name));
+    return pokeTypes;
 }
 
 const GetPokeName = (pokemonData) => {
@@ -49,4 +49,15 @@ console.log(await GetPokeFlavorText(await GetPokemonData("tepig")));
 
 console.log(nameFormat("jayvon"));
 
+const GetPokeMoves = (pokemonData) => {
+    let moveArr = [];
+    pokemonData.moves.map(m => moveArr.push(m.move.name));
+    return moveArr.join(", ");
+    
+}
 
+console.log(GetPokeMoves(await GetPokemonData("charizard")));
+
+const GetPokeAbilities = (pokemonData) => {
+    let
+}
