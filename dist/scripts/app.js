@@ -67,9 +67,12 @@ const GetPokeLocation = async (pokemonData) => {
     }else {
         const promise2 = await fetch(data[0].location_area.url);
         const data2 = await promise2.json();
-        console.log(data2.names[0].name);
-        return data2.names[0].name;
+        if(data2.names.toString() === ""){
+            console.log("noe");
+            return "none";
+        }
+        // return data2.names[0].name;
     }
 }
 
-await GetPokeLocation(await GetPokemonData("squirtle"));
+await GetPokeLocation(await GetPokemonData("pidgeot"));
