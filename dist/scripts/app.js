@@ -28,3 +28,7 @@ const GetPokeName = async (pokemonData) => {
     return pokemonData.species.name;
 }
 
+const GetPokeNum = async (pokemonData) => {
+    return pokemonData.id;
+}
+
