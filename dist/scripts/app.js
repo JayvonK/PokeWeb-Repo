@@ -44,20 +44,16 @@ const GetPokeFlavorText = async (pokemonData) => {
     return arr[index].flavor_text;
 }
 
-console.log(await GetPokeFlavorText(await GetPokemonData("tepig")));
-
-
-console.log(nameFormat("jayvon"));
-
 const GetPokeMoves = (pokemonData) => {
     let moveArr = [];
     pokemonData.moves.map(m => moveArr.push(m.move.name));
     return moveArr.join(", ");
-    
-}
 
-console.log(GetPokeMoves(await GetPokemonData("charizard")));
+}
 
 const GetPokeAbilities = (pokemonData) => {
-    let
+    let abilityArr = [];
+    pokemonData.abilities.map(a => abilityArr.push(a.ability.name));
+    return abilityArr.join(", ");
 }
+
