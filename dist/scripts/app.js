@@ -1,4 +1,4 @@
-import { idFormat } from "./idFormat.js";
+import { idFormat, nameFormat } from "./dataFormat.js";
 
 let pokeImg = document.getElementById("pokeImg");
 let pokeTypes = [];
@@ -27,7 +27,7 @@ const GetPokeTypes = (pokemonData) => {
 }
 
 const GetPokeName = (pokemonData) => {
-    return pokemonData.species.name;
+    return nameFormat(pokemonData.species.name.toString());
 }
 
 
@@ -46,5 +46,7 @@ const GetPokeFlavorText = async (pokemonData) => {
 
 console.log(await GetPokeFlavorText(await GetPokemonData("tepig")));
 
+
+console.log(nameFormat("jayvon"));
 
 

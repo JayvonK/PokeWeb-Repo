@@ -11,4 +11,10 @@ const idFormat = (num) => {
     }
 }
 
-export {idFormat}
+const nameFormat = (name) => {
+    let nameArr = name.split("");
+    nameArr[0] = nameArr[0].toUpperCase();
+    return nameArr.join("");
+}
+
+export {idFormat, nameFormat}
