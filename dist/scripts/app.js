@@ -101,4 +101,12 @@ const GetPokeColor = async (pokemonData) => {
     return data.color.name;
 }
 
-console.log(await GetPokeColor(await GetPokemonData("tepig")));
+const GetPokeEvolution = async (pokemonData) => {
+    let id = pokemonData.id;
+    const promise = await fetch('https://pokeapi.co/api/v2/pokemon-species/' + id)
+    const data = await promise.json();
+
+    const promise2 = await fetch(data.evolution_chain.url);
+    const data2 = await promise2.json();
+    
+}
