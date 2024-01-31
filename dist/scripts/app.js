@@ -7,6 +7,23 @@ const GetPokemonData = async (pokemon) => {
     const data = await promise.json();
     const promise2 = await fetch(data.species.url);
     const data2 = await promise2.json();
+    switch(data2.generation.name.toString()){
+        case "generation-i":
+            return data;
+            break;
+        case "generation-ii":
+            return data;
+            break;
+        case "generation-iii":
+            return data;
+            break;
+        case "generation-iv":
+            return data;
+            break;
+        case "generation-v":
+            return data;
+            break;
+    }
 }
 
 const GetPokeImg = (pokemonData) => {
