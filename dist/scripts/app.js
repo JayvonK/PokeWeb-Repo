@@ -3,9 +3,10 @@ import { idFormat, nameFormat } from "./dataFormat.js";
 let pokeImg = document.getElementById("pokeImg");
 
 const GetPokemonData = async (pokemon) => {
-    const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon + '?limit=649&offset=0');
+    const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
     const data = await promise.json();
-    if()
+    const promise2 = await fetch(data.species.url);
+    const data2 = await promise2.json();
 }
 
 const GetPokeImg = (pokemonData) => {
