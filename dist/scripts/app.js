@@ -88,9 +88,17 @@ const GetPokeLocation = async (pokemonData) => {
         if(data2.names.toString() === ""){
             console.log("noe");
             return "none";
+        } else{
+            return data2.names[0].name;
         }
-        // return data2.names[0].name;
     }
 }
 
-await GetPokeLocation(await GetPokemonData("pidgeot"));
+const GetPokeColor = async (pokemonData) => {
+    let id = pokemonData.id;
+    const promise = await fetch('https://pokeapi.co/api/v2/pokemon-species/' + id)
+    const data = await promise.json();
+    return data.color.name;
+}
+
+console.log(await GetPokeColor(await GetPokemonData("tepig")));
