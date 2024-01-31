@@ -1165,6 +1165,10 @@ input:checked + .toggle-bg {
   height: 2.25rem;
 }
 
+.h-\[93px\] {
+  height: 93px;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1175,6 +1179,14 @@ input:checked + .toggle-bg {
 
 .w-64 {
   width: 16rem;
+}
+
+.w-\[405px\] {
+  width: 405px;
+}
+
+.w-\[640px\] {
+  width: 640px;
 }
 
 .flex-1 {
@@ -1239,12 +1251,20 @@ input:checked + .toggle-bg {
   resize: both;
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-rows-1 {
+  grid-template-rows: repeat(1, minmax(0, 1fr));
 }
 
 .items-start {
@@ -1419,6 +1439,10 @@ input:checked + .toggle-bg {
   text-align: center;
 }
 
+.text-\[128px\] {
+  font-size: 128px;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1527,9 +1551,29 @@ input:checked + .toggle-bg {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+@font-face {
+  font-family: Chakra Petch;
+
+  src: url(./assets/ChakraPetch-Regular.ttf);
+}
+
+@font-face {
+  font-family: Chakra Petch Bold;
+
+  src: url(./assets/ChakraPetch-Bold.ttf);
+}
+
 .bg-pokeBlue {
   background: rgb(121,140,255);
   background: linear-gradient(180deg, rgba(121,140,255,1) 0%, rgba(36,52,155,1) 100%);
+}
+
+.chakraBold {
+  font-family: Chakra Petch Bold;
+}
+
+.chakra {
+  font-family: Chakra Petch;
 }
 
 .hover\:border-gray-300:hover {
