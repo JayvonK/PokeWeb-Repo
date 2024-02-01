@@ -1,7 +1,6 @@
 import { GetPokeEvolveImg, GetPokemonData, evolutionDiv, CreatePokemon } from "./app.js";
 
 const Evolutions = (array) => {
-    
     evolutionDiv.innerHTML = "";
     if (array.length === 0) {
         evolutionDiv.innerText = "No Evolutions";

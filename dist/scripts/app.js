@@ -243,7 +243,7 @@ favoritesBtn.addEventListener('click', (event) => {
         UpdateFavs();
     }
 })
-await GetPokeEvolution(await GetPokemonData("tyrogue"));
+await GetPokeEvolution(await GetPokemonData("burmy"));
 
 
 export { pokeTypeDiv, favoritesBtn, pokeFavs, GetPokemonData, GetPokeImg, CreatePokemon, favoritesDiv, GetPokeEvolveImg, GetPokeEvolution, evolutionDiv }
