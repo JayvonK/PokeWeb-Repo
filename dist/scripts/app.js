@@ -10,6 +10,8 @@ let flavorText = document.getElementById("flavorText");
 let pokeName = document.getElementById("pokemonName");
 let pokeTypeDiv = document.getElementById("pokeTypeDiv");
 let pokeLocation = document.getElementById("pokeLocation");
+let pokeAbilities = document.getElementById("pokeAbilities");
+let pokeMoves = document.getElementById("pokeMoves");
 
 const GetPokemonData = async (pokemon) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
@@ -90,13 +92,12 @@ const GetPokeLocation = async (pokemonData) => {
     const data = await promise.json();
 
     if (data.toString() === "") {
-        console.log("no data found");
+        return "N/A";
     } else {
         const promise2 = await fetch(data[0].location_area.url);
         const data2 = await promise2.json();
         if (data2.names.toString() === "") {
-            console.log("noe");
-            return "none";
+            return data2.location.name;
         } else {
             return data2.names[0].name;
         }
@@ -118,3 +119,5 @@ const GetPokeEvolution = async (pokemonData) => {
     const promise2 = await fetch(data.evolution_chain.url);
     const data2 = await promise2.json();
 }
+
+console.log(await GetPokeLocation(await GetPokemonData("pidgeot")));
