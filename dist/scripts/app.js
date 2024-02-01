@@ -12,6 +12,8 @@ let pokeTypeDiv = document.getElementById("pokeTypeDiv");
 let pokeLocation = document.getElementById("pokeLocation");
 let pokeAbilities = document.getElementById("pokeAbilities");
 let pokeMoves = document.getElementById("pokeMoves");
+let flavorText2 = document.getElementById("flavorText2");
+let evolutionDiv = document.getElementById("evolutionDiv");
 
 const GetPokemonData = async (pokemon) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
