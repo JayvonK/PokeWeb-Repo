@@ -1,6 +1,8 @@
 import { idFormat, nameFormat } from "./dataFormat.js";
 
 let pokeImg = document.getElementById("pokeImg");
+let userInput = document.getElementById("userInput");
+let searchBtn = document.getElementById("searchBtn")
 
 const GetPokemonData = async (pokemon) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
