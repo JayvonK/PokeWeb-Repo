@@ -1810,6 +1810,51 @@ input:checked + .toggle-bg {
   background: linear-gradient(180deg, rgba(121,140,255,1) 0%, rgba(36,52,155,1) 100%);
 }
 
+.bg-pokeRed {
+  background: rgb(255,64,64);
+  background: linear-gradient(180deg, rgba(255,64,64,1) 0%, rgba(115,22,21,1) 100%);
+}
+
+.bg-pokePurple {
+  background: rgb(157,4,211);
+  background: linear-gradient(180deg, rgba(157,4,211,1) 0%, rgba(64,0,87,1) 100%);
+}
+
+.bg-pokeBlack {
+  background: rgb(38,38,38);
+  background: linear-gradient(180deg, rgba(38,38,38,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+.bg-pokeBrown {
+  background: rgb(113,49,13);
+  background: linear-gradient(180deg, rgba(113,49,13,1) 0%, rgba(50,20,2,1) 100%);
+}
+
+.bg-pokeGray {
+  background: rgb(91,91,91);
+  background: linear-gradient(180deg, rgba(91,91,91,1) 0%, rgba(45,45,45,1) 100%);
+}
+
+.bg-pokeGreen {
+  background: rgb(0,255,56);
+  background: linear-gradient(180deg, rgba(0,255,56,1) 0%, rgba(8,98,0,1) 100%);
+}
+
+.bg-pokePink {
+  background: rgb(255,0,214);
+  background: linear-gradient(180deg, rgba(255,0,214,1) 0%, rgba(108,3,91,1) 100%);
+}
+
+.bg-pokeWhite {
+  background: rgb(200,200,200);
+  background: linear-gradient(180deg, rgba(200,200,200,1) 0%, rgba(70,70,70,1) 100%);
+}
+
+.bg-pokeYellow {
+  background: rgb(255,229,0);
+  background: linear-gradient(180deg, rgba(255,229,0,1) 0%, rgba(81,83,2,1) 100%);
+}
+
 .bg-water {
   background-color: #0500ff85;
 }
