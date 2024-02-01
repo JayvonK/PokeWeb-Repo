@@ -162,7 +162,6 @@ const GetPokeEvolution = async (pokemonData) => {
             }
 
         }
-        console.log(evolArr);
         return evolArr;
     }
 
@@ -174,7 +173,6 @@ const CreatePokemon = async (pokemon) => {
     let data = await GetPokemonData(pokemon);
     if (data) {
         pokeTypeDiv.innerHTML = "";
-        console.log(data);
         pokeImg.src = GetPokeImg(data);
         pokeShinyImg.src = GetShinyPokeImg(data);
         pokeName.textContent = GetPokeName(data);

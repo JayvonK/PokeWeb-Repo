@@ -1739,12 +1739,12 @@ input:checked + .toggle-bg {
   opacity: 0;
 }
 
-.opacity-10 {
-  opacity: 0.1;
-}
-
 .opacity-100 {
   opacity: 1;
+}
+
+.opacity-5 {
+  opacity: 0.05;
 }
 
 .shadow {
@@ -1952,6 +1952,7 @@ input:checked + .toggle-bg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 .verticalWord {
@@ -2323,6 +2324,10 @@ input:checked + .toggle-bg {
     display: none;
   }
 
+  .\32xl\:h-\[700px\] {
+    height: 700px;
+  }
+
   .\32xl\:h-screen {
     height: 100vh;
   }
@@ -2349,6 +2354,10 @@ input:checked + .toggle-bg {
 
   .\32xl\:justify-start {
     justify-content: flex-start;
+  }
+
+  .\32xl\:overflow-y-auto {
+    overflow-y: auto;
   }
 
   .\32xl\:px-40 {
