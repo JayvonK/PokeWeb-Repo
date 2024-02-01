@@ -1169,6 +1169,10 @@ input:checked + .toggle-bg {
   margin-bottom: 2rem;
 }
 
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -1947,6 +1951,12 @@ input:checked + .toggle-bg {
   font-family: Chakra Petch;
 }
 
+.hover\:scale-105:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -2279,6 +2289,10 @@ input:checked + .toggle-bg {
 
   .\32xl\:hidden {
     display: none;
+  }
+
+  .\32xl\:h-screen {
+    height: 100vh;
   }
 
   .\32xl\:w-\[405px\] {

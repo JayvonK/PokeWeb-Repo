@@ -1,6 +1,7 @@
 import { idFormat, nameFormat } from "./dataFormat.js";
 import { BodyColor } from "./bodyColor.js";
 import { AddType } from "./addType.js";
+import { CheckFav } from "./localStorage.js";
 
 let pokeImg = document.getElementById("pokeImg");
 let userInput = document.getElementById("userInput");
@@ -19,6 +20,14 @@ let flavorText2 = document.getElementById("flavorText2");
 let evolutionDiv = document.getElementById("evolutionDiv");
 let body = document.getElementById("body");
 let pokeShinyImg = document.getElementById("pokeShinyImg");
+
+let pokeFavs = [];
+let currentPokemon = "";
+
+if (localStorage.getItem("pokemonFavorites")) {
+    pokeFavs = JSON.parse(localStorage.getItem("pokemonFavorites"));
+}
+
 
 const GetPokemonData = async (pokemon) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
@@ -129,6 +138,7 @@ const GetPokeEvolution = async (pokemonData) => {
 }
 
 const CreatePokemon = async (pokemon) => {
+    currentPokemon = pokemon.toString();
     let data = await GetPokemonData(pokemon);
     if (data) {
         pokeTypeDiv.innerHTML = "";
@@ -142,14 +152,19 @@ const CreatePokemon = async (pokemon) => {
         pokeMoves.textContent = GetPokeMoves(data);
         flavorText.textContent = await GetPokeFlavorText(data);
         flavorText2.textContent = await GetPokeFlavorText(data);
-        body.className = "bg-no-repeat " + await GetPokeColor(data);
+        body.className = "2xl:h-screen bg-no-repeat " + await GetPokeColor(data);
         let typeArr = GetPokeTypes(data);
         typeArr.map(type => AddType(type));
-    }else {
+        // pokeFavs.push(pokemon.toString());
+        // console.log(pokeFavs);
+        // localStorage.setItem("pokemonFavorites", JSON.stringify(pokeFavs));
+        CheckFav(pokemon, pokeFavs);
+    } else {
         alert("Enter a pokemon name / id that's within gen 1 - 5");
     }
-
 }
+
+CreatePokemon("squirtle");
 
 userInput.addEventListener('keydown', (event) => {
     if (event.key === "Enter") {
@@ -163,9 +178,10 @@ searchBtn.addEventListener('click', (event) => {
     }
 })
 
-randomBtn.addEventListener('click', (event) => {
+randomBtn.addEventListener('click', async (event) => {
     let randomNum = Math.floor(Math.random() * 649) + 1;
-    CreatePokemon(randomNum);
+    let nam = await GetPokemonData(randomNum);
+    CreatePokemon(nam.species.name.toString());
 })
 
 pokeImg.addEventListener('click', (event) => {
@@ -178,7 +194,23 @@ pokeShinyImg.addEventListener('click', (event) => {
     pokeShinyImg.className = "md:w-[550px] h-auto w-[330px] transition duration-300 hover:scale-110 hidden";
 })
 
+favoritesBtn.addEventListener('click', (event) => {
+    if (favoritesBtn.alt === "heart outline") {
+        console.log("added");
+        favoritesBtn.src = "./assets/icons8-heart-64.png";
+        favoritesBtn.alt = "heart";
+        pokeFavs.push(currentPokemon);
+        localStorage.setItem("pokemonFavorites", JSON.stringify(pokeFavs));
+    } else if (favoritesBtn.alt === "heart") {
+        console.log("deleted");
+        favoritesBtn.src = "./assets/heartoutline.png";
+        favoritesBtn.alt = "heart outline";
+        let index = pokeFavs.indexOf(currentPokemon);
+        pokeFavs.splice(index, 1);
+        localStorage.setItem("pokemonFavorites", JSON.stringify(pokeFavs));
+    }
+})
 // console.log(GetPokeTypes(await GetPokemonData("charizard")));
 
 
-export { pokeTypeDiv }
+export { pokeTypeDiv, favoritesBtn, pokeFavs, GetPokemonData, GetPokeImg, CreatePokemon }
