@@ -1169,6 +1169,10 @@ input:checked + .toggle-bg {
   margin-bottom: 2rem;
 }
 
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
 .ms-auto {
   margin-inline-start: auto;
 }
@@ -1923,7 +1927,7 @@ input:checked + .toggle-bg {
   background-color: #705848;
 }
 
-.bg-fiary {
+.bg-fairy {
   background-color: #ffaec9;
 }
 
