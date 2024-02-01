@@ -7,7 +7,8 @@ let randomBtn = document.getElementById("randomBtn");
 let favoritesBtn = document.getElementById("favoritesBtn");
 let favoritesDiv = document.getElementById("favoritesDiv");
 let flavorText = document.getElementById("flavorText");
-let pokeName = document.getElementById("pokemonName");
+let pokeId = document.getElementById("pokeId");
+let pokeName = document.getElementById("pokeName");
 let pokeTypeDiv = document.getElementById("pokeTypeDiv");
 let pokeLocation = document.getElementById("pokeLocation");
 let pokeAbilities = document.getElementById("pokeAbilities");
@@ -122,4 +123,31 @@ const GetPokeEvolution = async (pokemonData) => {
     const data2 = await promise2.json();
 }
 
-console.log(await GetPokeLocation(await GetPokemonData("pidgeot")));
+const CreatePokemon = async (pokemon) => {
+    let data = await GetPokemonData(pokemon);
+    pokeImg.src = GetPokeImg(data);
+    pokeName.textContent = GetPokeName(data);
+    pokeId.textContent = GetPokeNum(data);
+    pokeLocation.textContent = await GetPokeLocation(data);
+    pokeAbilities.textContent = GetPokeAbilities(data);
+    pokeMoves.textContent = GetPokeMoves(data);
+    flavorText.textContent = await GetPokeFlavorText(data);
+    flavorText2.textContent = await GetPokeFlavorText(data);
+}
+
+userInput.addEventListener('keydown', (event) => {
+    if(event.key === "Enter"){
+        CreatePokemon(event.target.value);
+    }
+})
+
+searchBtn.addEventListener('click', (event) => {
+    if(userInput.value){
+        CreatePokemon(userInput.value);
+    }
+})
+
+randomBtn.addEventListener('click', (event) => {
+    let randomNum = Math.floor(Math.random() * 649) + 1;
+    CreatePokemon(randomNum);
+})
