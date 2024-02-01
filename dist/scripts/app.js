@@ -4,6 +4,9 @@ let pokeImg = document.getElementById("pokeImg");
 let userInput = document.getElementById("userInput");
 let searchBtn = document.getElementById("searchBtn");
 let randomBtn = document.getElementById("randomBtn");
+let favoritesBtn = document.getElementById("favoritesBtn");
+let favoritesDiv = document.getElementById("favoritesDiv");
+
 
 const GetPokemonData = async (pokemon) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
