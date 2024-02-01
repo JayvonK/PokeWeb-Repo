@@ -140,33 +140,37 @@ const GetPokeEvolution = async (pokemonData) => {
 
     const promise2 = await fetch(data.evolution_chain.url);
     const data2 = await promise2.json();
-    if(data2.chain.evolves_to.length !== 0){
+    if (data2.chain.evolves_to.length !== 0) {
         data2.chain.evolves_to.map(key => {
             let arr = [];
             arr.push(data2.chain.species.name);
-            arr.push(key.species.name);
+            if (key.species.name === "wormadam") {
+                arr.push(413);
+            } else {
+                arr.push(key.species.name);
+            }
             evolArr.push(arr);
         })
-        if(data2.chain.evolves_to.every(ev => ev.evolves_to.length !== 0)) {
-            for(let i = 0; i < data2.chain.evolves_to.length; i++){
+        if (data2.chain.evolves_to.every(ev => ev.evolves_to.length !== 0)) {
+            for (let i = 0; i < data2.chain.evolves_to.length; i++) {
                 data2.chain.evolves_to[i].evolves_to.map(vol => {
-                let arr2 = [];
-                arr2.push(data2.chain.evolves_to[0].species.name);
-                arr2.push(vol.species.name);
-                evolArr.push(arr2);
-            })
+                    let arr2 = [];
+                    arr2.push(data2.chain.evolves_to[0].species.name);
+                    arr2.push(vol.species.name);
+                    evolArr.push(arr2);
+                })
             }
-            
+
         }
         console.log(evolArr);
         return evolArr;
     }
-    
+
 }
 
 const CreatePokemon = async (pokemon) => {
     userInput.value = "";
-    currentPokemon = pokemon.toString();
+    currentPokemon = pokemon.toString().toLowerCase();
     let data = await GetPokemonData(pokemon);
     if (data) {
         pokeTypeDiv.innerHTML = "";
@@ -197,14 +201,21 @@ CreatePokemon("squirtle");
 
 userInput.addEventListener('keydown', async (event) => {
     if (event.key === "Enter") {
-        let data = await GetPokemonData(userInput.value);
-        CreatePokemon(data.species.name);
+        if (event.target.value.toLowerCase() === "wormadam" || event.target.value === "413") {
+            CreatePokemon(413);
+        } else {
+            let data = await GetPokemonData(event.target.value);
+            CreatePokemon(data.species.name);
+        }
+
     }
 })
 
 searchBtn.addEventListener('click', async (event) => {
-    if (userInput.value) {
-        let data = await GetPokemonData(userInput.value);
+    if (userInput.value.toLowerCase() === "wormadam" || userInput.value === "413") {
+        CreatePokemon(413);
+    } else {
+        let data = await GetPokemonData(event.target.value);
         CreatePokemon(data.species.name);
     }
 })

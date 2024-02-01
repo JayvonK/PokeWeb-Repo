@@ -1739,12 +1739,12 @@ input:checked + .toggle-bg {
   opacity: 0;
 }
 
-.opacity-100 {
-  opacity: 1;
+.opacity-10 {
+  opacity: 0.1;
 }
 
-.opacity-5 {
-  opacity: 0.05;
+.opacity-100 {
+  opacity: 1;
 }
 
 .shadow {
@@ -1952,6 +1952,15 @@ input:checked + .toggle-bg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.verticalWord {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-lr;
+  text-orientation: sideways-right;
 }
 
 .chakraBold {

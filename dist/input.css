@@ -131,6 +131,15 @@
     transform: translate(-50%, -50%);
 }
 
+.verticalWord {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-lr;
+    text-orientation: sideways-right;
+}
+
 
 .chakraBold {
     font-family: Chakra Petch Bold;
