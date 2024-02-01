@@ -157,3 +157,10 @@
         left:15%;
     }
 }
+
+    @media screen and (max-width: 1100px){
+        .verticalWord{
+            top:42%;
+            left:10%;
+        }
+}
