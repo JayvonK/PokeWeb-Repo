@@ -165,6 +165,7 @@ const GetPokeEvolution = async (pokemonData) => {
 }
 
 const CreatePokemon = async (pokemon) => {
+    userInput.value = "";
     currentPokemon = pokemon.toString();
     let data = await GetPokemonData(pokemon);
     if (data) {
@@ -194,15 +195,17 @@ UpdateFavs();
 
 CreatePokemon("squirtle");
 
-userInput.addEventListener('keydown', (event) => {
+userInput.addEventListener('keydown', async (event) => {
     if (event.key === "Enter") {
-        CreatePokemon(event.target.value);
+        let data = await GetPokemonData(userInput.value);
+        CreatePokemon(data.species.name);
     }
 })
 
-searchBtn.addEventListener('click', (event) => {
+searchBtn.addEventListener('click', async (event) => {
     if (userInput.value) {
-        CreatePokemon(userInput.value);
+        let data = await GetPokemonData(userInput.value);
+        CreatePokemon(data.species.name);
     }
 })
 

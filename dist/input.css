@@ -124,6 +124,13 @@
     background-color: #000000;
 }
 
+.pokeBall {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 .chakraBold {
     font-family: Chakra Petch Bold;
