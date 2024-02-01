@@ -17,6 +17,10 @@
     background: linear-gradient(180deg, rgba(121,140,255,1) 0%, rgba(36,52,155,1) 100%);
 }
 
+.bg-water {
+    background-color: #0500ff85;
+}
+
 .chakraBold {
     font-family: Chakra Petch Bold;
 }

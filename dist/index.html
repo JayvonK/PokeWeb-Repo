@@ -1,52 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeWeb</title>
     <link rel="stylesheet" href="./output.css">
 </head>
-<body class="bg-gray-300">
-    <div class="grid grid-rows-1 px-52">
-        <div class="grid grid-cols-2">
-            <div>
-                <h1 class="text-[128px] w-[640px] chakraBold">POKEWEB</h1>
+
+<body class="bg-pokeBlue bg-no-repeat">
+    <div class="grid grid-rows-1 2xl:px-40 lg:px-28 px-10 md:mt-14">
+        <div class="grid 2xl:grid-cols-2 2xl:grid-rows-none grid-rows-2">
+            <div class="2xl:w-[650px] flex items-center">
+                <h1 class="md:text-[128px] md:w-[640px] text-6xl chakraBold text-white drop-shadow-lg">POKEWEB</h1>
             </div>
-            <div class="flex items-center">
-                <input class="w-[405px] h-[93px]" type="text" name="" id="" placeholder="Search for Pokemon">
+            <div class="md:flex md:items-center">
+                <input id="userInput"
+                    class="2xl:w-[405px] xl:w-[800px] md:w-[405px] md:h-[93px] w-[280px] h-[56px] chakra md:text-3xl text-[24px]"
+                    type="text" name="" id="" placeholder="Search for Pokemon">
+                <div class="flex md:justify-around justify-between md:w-full w-[250px] md:mt-0 mt-5">
+                    <button id="searchBtn"
+                        class="bg-black bg-opacity-50 hover:bg-opacity-25 md:w-24 w-[56px] rounded-3xl"><img class="p-2"
+                            src="./assets/icons8-magnifying-glass-128.png" alt=""></button>
+                    <button id="randomBtn"
+                        class="bg-black bg-opacity-50 hover:bg-opacity-25 md:w-24 w-[56px] rounded-3xl"><img class="p-2"
+                            src="./assets/icons8-random-100.png" alt=""></button>
+
+
+                    <!-- Modal toggle -->
+                    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                        class="block bg-black bg-opacity-50 hover:bg-opacity-25 md:w-24 w-[56px] rounded-3xl"
+                        type="button">
+                        <img class="p-2" src="./assets/icons8-heart-96 (1).png" alt="">
+                    </button>
+
+                    <!-- Main modal -->
+                    <div id="default-modal" tabindex="-1" aria-hidden="true"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-[30px] shadow dark:bg-gray-700">
+                                <!-- Modal header -->
+                                <div
+                                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="md:text-5xl text-3xl chakra text-gray-900 dark:text-white flex items-center">
+                                        <img class="md:w-14 w-8" src="./assets/icons8-heart-96 (1).png" alt="">FAVORITES
+                                    </h3>
+                                    <button type="button"
+                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                        data-modal-hide="default-modal">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="p-4 md:p-5 grid grid-flow-row grid-cols-4">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                    <img class="w-28 transition duration-300 ease-out hover:scale-110" src="./assets/squirtle.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="grid grid-rows-1">
-        <div class="grid grid-cols-2">
+    <div class="grid grid-rows-1 mt-12">
+        <div class="2xl:grid 2xl:grid-cols-2">
             <div>
-                <div class="pl-52">
-                    <img class="w-[550px] h-auto" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png" alt="">
+                <div class="2xl:pl-40 2xl:flex 2xl:justify-start flex justify-center">
+                    <img id="pokeImg" class="md:w-[550px] h-auto w-[330px]" src="./assets/squirtle.png" alt="">
                 </div>
-                <div class="pl-52">
-                    <h2>Flavor text</h2>
+                <div class="pl-40 2xl:block hidden w-[80%]">
+                    <h2 id="flavorText" class="text-4xl chakra text-white drop-shadow-lg">The shell is soft when it is
+                        born. It soon becomes so resilient, prod­ ding fingers will bounce off it.</h2>
                 </div>
             </div>
-            <div class="grid grid-cols-2">
+            <div class="2xl:grid 2xl:grid-cols-[55%_45%] 2xl:mx-0 lg:mx-60 md:mx-20 mx-10">
                 <div>
-                    <h1>007</h1>
-                    <h1 class="h-auto text-6xl chakraBold flex items-center">Squirtle <button><img src="./assets/heartoutline.png" alt=""></button></h1>
-                    <div>Water</div>
-                    <h1>Location: <span>Vermilion City</span></h1>
-                    <h1>Abilities: <span>torrent, rain-dash</span></h1>
-                    <h1>Moves: <span>mega punch</span></h1>
-                    
+                    <h1 class="lg:hidden text-2xl chakra text-white text-center mt-3 my-5">Click the pokemon!</h1>
+                    <h1 class="md:text-4xl text-[24px] chakraBold text-white mb-6 drop-shadow-lg">#007</h1>
+                    <h1 class="h-auto md:text-6xl text-[40px] chakraBold flex text-white items-center mb-6"><span
+                            id="pokeName" class="drop-shadow-lg">Squirtle</span> <button><img class="md:w-auto w-[40px]"
+                                src="./assets/heartoutline.png" alt=""></button></h1>
+                    <div id="pokeTypeDiv" class="mb-6 text-3xl text-white">
+                        <button class="bg-water rounded-[50px] drop-shadow-lg">
+                            <p class="px-4 py-2 chakraBold md:text-3xl text-2xl">Water</p>
+                        </button>
+                    </div>
+                    <h1 class="md:text-4xl text-[24px] chakraBold text-white mb-10 drop-shadow-lg">Location: <span
+                            id="pokeLocation" class="chakra">Vermilion City</span></h1>
+                    <h1 class="md:text-4xl text-[24px] chakraBold text-white mb-10 drop-shadow-lg">Abilities: <span
+                            id="pokeAbilities" class="chakra">torrent, rain-dash</span></h1>
+                    <h1 class="md:text-4xl text-[24px] chakraBold text-white mb-10 drop-shadow-lg h-72 overflow-y-auto">
+                        Moves: <span id="pokeMoves" class="chakra">Mega Punch, Ice Punch, Mega Kick Headbutt, Tackle,
+                            Body Slam,
+                            Take Down, Double Edge, Tail Whip, Bite, Mist, Water Gun, Hydro Pump, Surf, Ice Beam,
+                            Blizzard, Bubble Beam, Submission, Counter, Seismic, Toss, Strength, Dig, Toxic, Confusion,
+                            Rage, Mimic, Double Team, Withdraw, Defense Curl, Haze, Reflect, Bide, Waterfall, Skull
+                            Bash, Bubble, Rest, Rock Slide, Substitute, Snore, Curse</span></h1>
+
                 </div>
-                <div>
-                    <h1>Evolutions</h1>
+                <div class="2xl:hidden md:my-24 my-12">
+                    <h2 id="flavorText2" class="md:text-4xl text-[24px] chakra text-white drop-shadow-lg">The shell is
+                        soft when it is
+                        born. It soon becomes so resilient, prod­ ding fingers will bounce off it.</h2>
+                </div>
+                <div class="2xl:pl-8">
+                    <h1 class="md:text-4xl text-[24px] chakraBold text-white drop-shadow-lg md:mb-12 mb-6">Evolutions</h1>
+                    <div id="evolutionDiv" class="mb-8">
+                        <div class="flex justify-start items-center md:mb-8 mb-4">
+                            <button
+                                class="bg-black bg-opacity-50 hover:bg-opacity-25 md:w-28 md:h-28 w-20 h-20 rounded-[50px] flex justify-center items-center"><img
+                                    class="md:w-20 w-12" src="./assets/evol 1.gif" alt=""></button>
+                            <img class="w-12 md:mx-10 mx-5" src="./assets/ArrowRight.png" alt="">
+                            <button
+                                class="bg-black bg-opacity-50 hover:bg-opacity-25 md:w-28 md:h-28 w-20 h-20 rounded-[50px] flex justify-center items-center"><img
+                                    class="md:w-20 w-12" src="./assets/evol 2.gif" alt=""></button>
+                        </div>
+                        <div class="flex justify-start items-center md:mb-8 mb-4">
+                            <button
+                                class="bg-black bg-opacity-50 hover:bg-opacity-25 md:w-28 md:h-28 w-20 h-20 rounded-[50px] flex justify-center items-center"><img
+                                    class="md:w-20 w-12" src="./assets/evol 1.gif" alt=""></button>
+                            <img class="w-12 md:mx-10 mx-5" src="./assets/ArrowRight.png" alt="">
+                            <button
+                                class="bg-black bg-opacity-50 hover:bg-opacity-25 md:w-28 md:h-28 w-20 h-20 rounded-[50px] flex justify-center items-center"><img
+                                    class="md:w-20 w-12" src="./assets/evol 2.gif" alt=""></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-<script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
-<script type="module" src="./scripts/app.js"></script>
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script type="module" src="./scripts/app.js"></script>
 </body>
+
 </html>
