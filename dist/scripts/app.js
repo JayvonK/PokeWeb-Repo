@@ -225,13 +225,13 @@ randomBtn.addEventListener('click', async (event) => {
 })
 
 pokeImg.addEventListener('click', (event) => {
-    pokeImg.className = "md:w-[550px] h-auto w-72 transition duration-300 hover:scale-110 hidden";
-    pokeShinyImg.className = "md:w-[550px] h-auto w-72 transition duration-300 hover:scale-110";
+    pokeImg.className = "md:w-[550px] h-auto w-72 cursor-pointer transition duration-300 hover:scale-110 hidden";
+    pokeShinyImg.className = "md:w-[550px] h-auto w-72 cursor-pointer transition duration-300 hover:scale-110";
 })
 
 pokeShinyImg.addEventListener('click', (event) => {
-    pokeImg.className = "md:w-[550px] h-auto w-72 transition duration-300 hover:scale-110";
-    pokeShinyImg.className = "md:w-[550px] h-auto w-72 transition duration-300 hover:scale-110 hidden";
+    pokeImg.className = "md:w-[550px] h-auto w-72 cursor-pointer transition duration-300 hover:scale-110";
+    pokeShinyImg.className = "md:w-[550px] h-auto w-72 cursor-pointer transition duration-300 hover:scale-110 hidden";
 })
 
 favoritesBtn.addEventListener('click', (event) => {
