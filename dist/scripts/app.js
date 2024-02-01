@@ -108,5 +108,4 @@ const GetPokeEvolution = async (pokemonData) => {
 
     const promise2 = await fetch(data.evolution_chain.url);
     const data2 = await promise2.json();
-
 }
