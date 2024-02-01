@@ -17,4 +17,21 @@ const nameFormat = (name) => {
     return nameArr.join("");
 }
 
-export {idFormat, nameFormat}
+const moveFormat = (move) => {
+    let dash = false;
+    let arr = [];
+    for(let i = 0; i < move.length; i++)
+    {
+        if(move[i] === "-"){
+            dash = true;
+        }
+    }
+    if(dash){
+        arr = move.split("-");
+        return arr.map(w => nameFormat(w)).join(" ");
+    } else{
+        return nameFormat(move);
+    }
+}
+
+export {idFormat, nameFormat, moveFormat }

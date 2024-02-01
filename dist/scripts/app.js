@@ -1,4 +1,4 @@
-import { idFormat, nameFormat } from "./dataFormat.js";
+import { idFormat, nameFormat, moveFormat } from "./dataFormat.js";
 import { BodyColor } from "./bodyColor.js";
 import { AddType } from "./addType.js";
 import { CheckFav } from "./localStorage.js";
@@ -95,14 +95,15 @@ const GetPokeFlavorText = async (pokemonData) => {
 
 const GetPokeMoves = (pokemonData) => {
     let moveArr = [];
-    pokemonData.moves.map(m => moveArr.push(m.move.name));
+    pokemonData.moves.map(m => moveArr.push(moveFormat(m.move.name)));
+    console.log(moveArr);
     return moveArr.join(", ");
 
 }
 
 const GetPokeAbilities = (pokemonData) => {
     let abilityArr = [];
-    pokemonData.abilities.map(a => abilityArr.push(a.ability.name));
+    pokemonData.abilities.map(a => abilityArr.push(moveFormat(a.ability.name)));
     return abilityArr.join(", ");
 }
 
