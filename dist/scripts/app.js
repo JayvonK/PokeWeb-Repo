@@ -7,7 +7,7 @@ const GetPokemonData = async (pokemon) => {
     const data = await promise.json();
     const promise2 = await fetch(data.species.url);
     const data2 = await promise2.json();
-    switch(data2.generation.name.toString()){
+    switch (data2.generation.name.toString()) {
         case "generation-i":
             return data;
             break;
@@ -80,15 +80,15 @@ const GetPokeLocation = async (pokemonData) => {
     const promise = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/encounters`);
     const data = await promise.json();
 
-    if(data.toString() === ""){
+    if (data.toString() === "") {
         console.log("no data found");
-    }else {
+    } else {
         const promise2 = await fetch(data[0].location_area.url);
         const data2 = await promise2.json();
-        if(data2.names.toString() === ""){
+        if (data2.names.toString() === "") {
             console.log("noe");
             return "none";
-        } else{
+        } else {
             return data2.names[0].name;
         }
     }
@@ -108,5 +108,5 @@ const GetPokeEvolution = async (pokemonData) => {
 
     const promise2 = await fetch(data.evolution_chain.url);
     const data2 = await promise2.json();
-    
+
 }
