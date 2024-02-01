@@ -1,4 +1,5 @@
 import { idFormat, nameFormat } from "./dataFormat.js";
+import { BodyColor } from "./bodyColor.js";
 
 let pokeImg = document.getElementById("pokeImg");
 let userInput = document.getElementById("userInput");
@@ -15,6 +16,7 @@ let pokeAbilities = document.getElementById("pokeAbilities");
 let pokeMoves = document.getElementById("pokeMoves");
 let flavorText2 = document.getElementById("flavorText2");
 let evolutionDiv = document.getElementById("evolutionDiv");
+let body = document.getElementById("body");
 
 const GetPokemonData = async (pokemon) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
@@ -111,8 +113,10 @@ const GetPokeColor = async (pokemonData) => {
     let id = pokemonData.id;
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon-species/' + id)
     const data = await promise.json();
-    return data.color.name;
+    return BodyColor(data.color.name.toString());
 }
+
+
 
 const GetPokeEvolution = async (pokemonData) => {
     let id = pokemonData.id;
@@ -133,6 +137,7 @@ const CreatePokemon = async (pokemon) => {
     pokeMoves.textContent = GetPokeMoves(data);
     flavorText.textContent = await GetPokeFlavorText(data);
     flavorText2.textContent = await GetPokeFlavorText(data);
+    body.className = "bg-no-repeat " + await GetPokeColor(data);
 }
 
 userInput.addEventListener('keydown', (event) => {

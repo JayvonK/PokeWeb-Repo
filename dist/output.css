@@ -1837,12 +1837,12 @@ input:checked + .toggle-bg {
 
 .bg-pokeGreen {
   background: rgb(0, 255, 56);
-  background: linear-gradient(180deg, rgba(0, 255, 56, 1) 0%, rgba(8, 98, 0, 1) 100%);
+  background: linear-gradient(180deg, rgba(0, 255, 56, 1) 0%, rgb(12, 133, 1) 100%);
 }
 
 .bg-pokePink {
   background: rgb(255, 0, 214);
-  background: linear-gradient(180deg, rgba(255, 0, 214, 1) 0%, rgba(108, 3, 91, 1) 100%);
+  background: linear-gradient(180deg, rgba(255, 0, 214, 1) 0%, rgb(138, 3, 115) 100%);
 }
 
 .bg-pokeWhite {
@@ -1852,11 +1852,87 @@ input:checked + .toggle-bg {
 
 .bg-pokeYellow {
   background: rgb(255, 229, 0);
-  background: linear-gradient(180deg, rgba(255, 229, 0, 1) 0%, rgba(81, 83, 2, 1) 100%);
+  background: linear-gradient(180deg, rgba(255, 229, 0, 1) 0%, rgb(125, 128, 2) 100%);
 }
 
 .bg-water {
-  background-color: #0500ff85;
+  background-color: #0500ff;
+}
+
+.bg-normal {
+  background-color: #a8a878;
+}
+
+.bg-fighting {
+  background-color: #c03028;
+}
+
+.bg-flying {
+  background-color: #a890f0;
+}
+
+.bg-poison {
+  background-color: #a040a0;
+}
+
+.bg-ground {
+  background-color: #e0c068;
+}
+
+.bg-rock {
+  background-color: #b8a038;
+}
+
+.bg-bug {
+  background-color: #a8b820;
+}
+
+.bg-ghost {
+  background-color: #705898;
+}
+
+.bg-steel {
+  background-color: #b8b8d0;
+}
+
+.bg-fire {
+  background-color: #f08030;
+}
+
+.bg-grass {
+  background-color: #78c850;
+}
+
+.bg-electric {
+  background-color: #f8d030;
+}
+
+.bg-psychic {
+  background-color: #f85888;
+}
+
+.bg-ice {
+  background-color: #98d8d8;
+}
+
+.bg-dragon {
+  background-color: #7038f8;
+}
+
+.bg-dark {
+  background-color: #705848;
+}
+
+.bg-fiary {
+  background-color: #ffaec9;
+}
+
+.bg-unknown {
+  background-color: #9e004a;
+}
+
+.bg-shadow {
+  background-color: #000000;
 }
 
 .chakraBold {
