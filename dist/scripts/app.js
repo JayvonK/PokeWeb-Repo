@@ -3,6 +3,7 @@ import { BodyColor } from "./bodyColor.js";
 import { AddType } from "./addType.js";
 import { CheckFav } from "./localStorage.js";
 import { UpdateFavs } from "./updateFav.js";
+import { Evolutions } from "./addEvolutions.js";
 
 let pokeImg = document.getElementById("pokeImg");
 let userInput = document.getElementById("userInput");
@@ -132,12 +133,35 @@ const GetPokeColor = async (pokemonData) => {
 
 
 const GetPokeEvolution = async (pokemonData) => {
+    let evolArr = [];
     let id = pokemonData.id;
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon-species/' + id)
     const data = await promise.json();
 
     const promise2 = await fetch(data.evolution_chain.url);
     const data2 = await promise2.json();
+    if(data2.chain.evolves_to.length !== 0){
+        data2.chain.evolves_to.map(key => {
+            let arr = [];
+            arr.push(data2.chain.species.name);
+            arr.push(key.species.name);
+            evolArr.push(arr);
+        })
+        if(data2.chain.evolves_to.every(ev => ev.evolves_to.length !== 0)) {
+            for(let i = 0; i < data2.chain.evolves_to.length; i++){
+                data2.chain.evolves_to[i].evolves_to.map(vol => {
+                let arr2 = [];
+                arr2.push(data2.chain.evolves_to[0].species.name);
+                arr2.push(vol.species.name);
+                evolArr.push(arr2);
+            })
+            }
+            
+        }
+        console.log(evolArr);
+        return evolArr;
+    }
+    
 }
 
 const CreatePokemon = async (pokemon) => {
@@ -160,6 +184,7 @@ const CreatePokemon = async (pokemon) => {
         typeArr.map(type => AddType(type));
         CheckFav(pokemon, pokeFavs);
         UpdateFavs();
+        Evolutions(await GetPokeEvolution(data));
     } else {
         alert("Enter a pokemon name / id that's within gen 1 - 5");
     }
@@ -215,7 +240,7 @@ favoritesBtn.addEventListener('click', (event) => {
         UpdateFavs();
     }
 })
-// console.log(GetPokeTypes(await GetPokemonData("charizard")));
+await GetPokeEvolution(await GetPokemonData("tyrogue"));
 
 
-export { pokeTypeDiv, favoritesBtn, pokeFavs, GetPokemonData, GetPokeImg, CreatePokemon, favoritesDiv }
+export { pokeTypeDiv, favoritesBtn, pokeFavs, GetPokemonData, GetPokeImg, CreatePokemon, favoritesDiv, GetPokeEvolveImg, GetPokeEvolution, evolutionDiv }
