@@ -2,6 +2,7 @@ import { idFormat, nameFormat } from "./dataFormat.js";
 import { BodyColor } from "./bodyColor.js";
 import { AddType } from "./addType.js";
 import { CheckFav } from "./localStorage.js";
+import { UpdateFavs } from "./updateFav.js";
 
 let pokeImg = document.getElementById("pokeImg");
 let userInput = document.getElementById("userInput");
@@ -20,6 +21,7 @@ let flavorText2 = document.getElementById("flavorText2");
 let evolutionDiv = document.getElementById("evolutionDiv");
 let body = document.getElementById("body");
 let pokeShinyImg = document.getElementById("pokeShinyImg");
+let favoritesDivBtn = document.getElementById("favoritesDivBtn");
 
 let pokeFavs = [];
 let currentPokemon = "";
@@ -27,6 +29,7 @@ let currentPokemon = "";
 if (localStorage.getItem("pokemonFavorites")) {
     pokeFavs = JSON.parse(localStorage.getItem("pokemonFavorites"));
 }
+
 
 
 const GetPokemonData = async (pokemon) => {
@@ -155,14 +158,14 @@ const CreatePokemon = async (pokemon) => {
         body.className = "2xl:h-screen bg-no-repeat " + await GetPokeColor(data);
         let typeArr = GetPokeTypes(data);
         typeArr.map(type => AddType(type));
-        // pokeFavs.push(pokemon.toString());
-        // console.log(pokeFavs);
-        // localStorage.setItem("pokemonFavorites", JSON.stringify(pokeFavs));
         CheckFav(pokemon, pokeFavs);
+        UpdateFavs();
     } else {
         alert("Enter a pokemon name / id that's within gen 1 - 5");
     }
 }
+
+UpdateFavs();
 
 CreatePokemon("squirtle");
 
@@ -201,6 +204,7 @@ favoritesBtn.addEventListener('click', (event) => {
         favoritesBtn.alt = "heart";
         pokeFavs.push(currentPokemon);
         localStorage.setItem("pokemonFavorites", JSON.stringify(pokeFavs));
+        UpdateFavs();
     } else if (favoritesBtn.alt === "heart") {
         console.log("deleted");
         favoritesBtn.src = "./assets/heartoutline.png";
@@ -208,9 +212,10 @@ favoritesBtn.addEventListener('click', (event) => {
         let index = pokeFavs.indexOf(currentPokemon);
         pokeFavs.splice(index, 1);
         localStorage.setItem("pokemonFavorites", JSON.stringify(pokeFavs));
+        UpdateFavs();
     }
 })
 // console.log(GetPokeTypes(await GetPokemonData("charizard")));
 
 
-export { pokeTypeDiv, favoritesBtn, pokeFavs, GetPokemonData, GetPokeImg, CreatePokemon }
+export { pokeTypeDiv, favoritesBtn, pokeFavs, GetPokemonData, GetPokeImg, CreatePokemon, favoritesDiv }
