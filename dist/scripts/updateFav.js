@@ -4,7 +4,7 @@ const UpdateFavs = async () => {
     favoritesDiv.innerHTML = "";
     for(let i = 0; i < pokeFavs.length; i++){
         let img = document.createElement("img");
-        img.className = "w-28 transition duration-300 ease-out hover:scale-110";
+        img.className = "w-28 transition duration-300 ease-out hover:scale-110 cursor-pointer";
         img.src = GetPokeImg(await GetPokemonData(pokeFavs[i]));
         img.alt = "Picture of " + pokeFavs[i];
 

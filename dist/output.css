@@ -1956,11 +1956,12 @@ input:checked + .toggle-bg {
 
 .verticalWord {
   position: absolute;
-  top: 50%;
-  left: 5%;
+  top: 35%;
+  left: 3%;
   transform: translate(-50%, -50%);
   writing-mode: vertical-lr;
-  text-orientation: sideways-right;
+  text-align: center;
+  transform: rotate(180deg);
 }
 
 .chakraBold {
@@ -1969,6 +1970,13 @@ input:checked + .toggle-bg {
 
 .chakra {
   font-family: Chakra Petch;
+}
+
+@media screen and (max-width: 1535px){
+  .verticalWord{
+    top:42%;
+    left:15%;
+  }
 }
 
 .hover\:scale-105:hover {
@@ -2271,6 +2279,10 @@ input:checked + .toggle-bg {
   .lg\:mx-60 {
     margin-left: 15rem;
     margin-right: 15rem;
+  }
+
+  .lg\:block {
+    display: block;
   }
 
   .lg\:hidden {
