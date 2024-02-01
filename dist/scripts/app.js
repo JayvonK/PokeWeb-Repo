@@ -6,7 +6,10 @@ let searchBtn = document.getElementById("searchBtn");
 let randomBtn = document.getElementById("randomBtn");
 let favoritesBtn = document.getElementById("favoritesBtn");
 let favoritesDiv = document.getElementById("favoritesDiv");
-
+let flavorText = document.getElementById("flavorText");
+let pokeName = document.getElementById("pokemonName");
+let pokeTypeDiv = document.getElementById("pokeTypeDiv");
+let pokeLocation = document.getElementById("pokeLocation");
 
 const GetPokemonData = async (pokemon) => {
     const promise = await fetch('https://pokeapi.co/api/v2/pokemon/' + pokemon);
