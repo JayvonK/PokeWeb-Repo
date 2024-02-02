@@ -214,7 +214,7 @@ searchBtn.addEventListener('click', async (event) => {
     if (userInput.value.toLowerCase() === "wormadam" || userInput.value === "413") {
         CreatePokemon(413);
     } else {
-        let data = await GetPokemonData(event.target.value);
+        let data = await GetPokemonData(userInput.value);
         CreatePokemon(data.species.name);
     }
 })
