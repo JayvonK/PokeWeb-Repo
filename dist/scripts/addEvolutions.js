@@ -16,7 +16,7 @@ const CreateEvolutions = async (pokemon1, pokemon2) => {
     button.className = "bg-black bg-opacity-50 hover:bg-opacity-25 md:w-28 md:h-28 w-20 h-20 rounded-[50px] flex justify-center items-center";
 
     let img = document.createElement("img");
-    img.className = "md:w-20 w-12";
+    img.className = "md:w-16 w-12";
     img.src = GetPokeEvolveImg(await GetPokemonData(pokemon1));
     img.alt = "pokemon evolution";
 
@@ -35,7 +35,7 @@ const CreateEvolutions = async (pokemon1, pokemon2) => {
     button2.className = "bg-black bg-opacity-50 hover:bg-opacity-25 md:w-28 md:h-28 w-20 h-20 rounded-[50px] flex justify-center items-center";
 
     let img2 = document.createElement("img");
-    img2.className = "md:w-20 w-12";
+    img2.className = "md:w-16 w-12";
     img2.src = GetPokeEvolveImg(await GetPokemonData(pokemon2));
     img2.alt = "pokemon evolution";
 
