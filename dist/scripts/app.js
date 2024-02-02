@@ -203,7 +203,7 @@ userInput.addEventListener('keydown', async (event) => {
         if (event.target.value.toLowerCase() === "wormadam" || event.target.value === "413") {
             CreatePokemon(413);
         } else {
-            let data = await GetPokemonData(event.target.value);
+            let data = await GetPokemonData(event.target.value.toLowerCase());
             CreatePokemon(data.species.name);
         }
 
@@ -214,7 +214,7 @@ searchBtn.addEventListener('click', async (event) => {
     if (userInput.value.toLowerCase() === "wormadam" || userInput.value === "413") {
         CreatePokemon(413);
     } else {
-        let data = await GetPokemonData(userInput.value);
+        let data = await GetPokemonData(userInput.value.toLowerCase());
         CreatePokemon(data.species.name);
     }
 })
