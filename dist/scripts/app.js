@@ -183,7 +183,7 @@ const CreatePokemon = async (pokemon) => {
         pokeMoves.textContent = GetPokeMoves(data);
         flavorText.textContent = await GetPokeFlavorText(data);
         flavorText2.textContent = await GetPokeFlavorText(data);
-        body.className = "2xl:h-screen bg-no-repeat " + await GetPokeColor(data);
+        body.className = "bg-repeat " + await GetPokeColor(data);
         let typeArr = GetPokeTypes(data);
         typeArr.map(type => AddType(type));
         CheckFav(pokemon, pokeFavs);
